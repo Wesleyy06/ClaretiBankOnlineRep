@@ -15,7 +15,7 @@ namespace ClaretiBank.Menus.AreaDoUsuario
         {
             Cpf = cpf;
         }
-        public void _Deposito(Dictionary<string, ContaCliente> ContaCorrente)
+        public void _Deposito(Dictionary<string, ContaCorrente> ContaCorrente)
         {
             string consulta = Cpf;
             var Resposta = ContaCorrente[consulta];

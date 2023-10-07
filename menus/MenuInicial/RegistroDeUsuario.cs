@@ -9,7 +9,7 @@ namespace ClaretiBank.Menus.MenuInicial;
 
 internal class RegistroDeUsuario : Menu
 {
-    public override void Executar(Dictionary<string, ContaCliente> ContaCorrente)
+    public override void Executar(Dictionary<string, ContaCorrente> ContaCorrente)
     {
         base.Executar(ContaCorrente);
         Console.Write("Informe seu Nome: ");
@@ -38,7 +38,7 @@ internal class RegistroDeUsuario : Menu
         string Senha = Console.ReadLine()!;
         Console.Clear();
         Console.WriteLine("Meus parabéns usuario registrado com sucesso!");
-        ContaCliente Usuario = new(Nome,SobreNome, NomeUsuario, Email, CPF, Agencia, NumeroConta, Senha);
+        ContaCorrente Usuario = new(Nome,SobreNome, NomeUsuario, Email, CPF, Agencia, NumeroConta, Senha);
         ContaCorrente.Add(CPF, Usuario);
         Thread.Sleep(1500);
         Console.Clear();

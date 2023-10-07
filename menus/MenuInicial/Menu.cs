@@ -9,7 +9,7 @@ namespace ClaretiBank.Menus.MenuInicial;
 
 public class Menu
 {
-    public virtual void Executar(Dictionary<string, ContaCliente> ContaCorrente)
+    public virtual void Executar(Dictionary<string, ContaCorrente> ContaCorrente)
     {
         Console.Clear();
     }

@@ -18,7 +18,7 @@ internal class MenuPrincipal
         Cpf = cpf;
     }
 
-    public void ExibirMenu(Dictionary<string, ContaCliente> ContaCorrente)
+    public void ExibirMenu(Dictionary<string, ContaCorrente> ContaCorrente)
     {
         string localizarUsuario = Cpf;
         var usuarioLocalizado = ContaCorrente[Cpf];

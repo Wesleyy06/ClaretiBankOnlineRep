@@ -14,7 +14,7 @@ internal class Saque
     {
         Cpf = cpf;
     }
-    public void MenuSaque(Dictionary<string, ContaCliente> ContaCorrente)
+    public void MenuSaque(Dictionary<string, ContaCorrente> ContaCorrente)
     {
         var Consulta = ContaCorrente[Cpf];
 

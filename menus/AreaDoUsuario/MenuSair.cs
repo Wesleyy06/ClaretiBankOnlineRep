@@ -10,7 +10,7 @@ namespace ClaretiBank.Menus.AreaDoUsuario
 {
     internal class MenuSair : Menu
     {
-        public override void Executar(Dictionary<string, ContaCliente> ContaCorrente)
+        public override void Executar(Dictionary<string, ContaCorrente> ContaCorrente)
         {
             Console.Clear();
             Console.WriteLine("Bye bye");

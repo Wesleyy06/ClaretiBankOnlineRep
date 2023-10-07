@@ -7,7 +7,7 @@ namespace ClaretiBank.Menus.MenuInicial;
 
 internal class Login : Menu
 {
-    public override void Executar(Dictionary<string, ContaCliente> ContaCorrente)
+    public override void Executar(Dictionary<string, ContaCorrente> ContaCorrente)
     {
         base.Executar(ContaCorrente);
 
@@ -19,36 +19,26 @@ internal class Login : Menu
             Console.Write("Numero CPF: ");
 
             string _Consulta = Console.ReadLine()!;
-           
-            if(ContaCorrente.ContainsKey(_Consulta)) 
+
+            if (ContaCorrente.ContainsKey(_Consulta))
             {
                 var Resposta = ContaCorrente[_Consulta];
-                if (Resposta.Cpf == _Consulta)
+                Console.Clear();
+                Console.WriteLine($"Bem Vindo {Resposta.NomeUsuario}, me informe sua senha");
+                Console.Write("Senha: ");
+                string Senha = Console.ReadLine()!;
+                if (Senha == Resposta.Senha)
                 {
+                    contador = 4;
                     Console.Clear();
-                    Console.WriteLine($"Bem Vindo {Resposta.NomeUsuario}, me informe sua senha");
-                    Console.Write("Senha: ");
-                    string Senha = Console.ReadLine()!;
-                    if (Senha == Resposta.Senha)
-                    {
-                        contador = 4;
-                        Console.Clear();
-                        Console.WriteLine("Usuario logado com sucesso!");
-                        Thread.Sleep(1500);
-                        Console.Clear();
-                        MenuPrincipal Menu2 = new(Resposta.Cpf);
-                        Menu2.ExibirMenu(ContaCorrente);
-                    }
-                    else 
-                    { 
-                        Console.Clear() ;
-                        Console.WriteLine("Senha incorreta!"); 
-                    }
+                    Console.WriteLine("Usuario logado com sucesso!");
+                    MenuPrincipal menu2 = new MenuPrincipal(_Consulta);
+                    menu2.ExibirMenu(ContaCorrente);
                 }
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Cpf não encontrado em nossa base de dados!"); 
+                    Console.WriteLine("Senha incorreta!");
                 }
             }
             else
@@ -58,9 +48,9 @@ internal class Login : Menu
                 Console.WriteLine($"Chances {contador} de {3}");
                 Thread.Sleep(1000);
 
-                if(contador == 3)
+                if (contador == 3)
                 {
-                    Console.Clear() ;
+                    Console.Clear();
                     Console.WriteLine("Tente novamente mais tarde");
                     Thread.Sleep(1500);
                 }

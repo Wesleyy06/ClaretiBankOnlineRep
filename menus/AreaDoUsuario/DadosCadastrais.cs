@@ -1,6 +1,7 @@
 ﻿using ClaretiBank.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -17,19 +18,14 @@ internal class DadosCadastrais
         Cpf = cpf;
     }
 
-    public void ExibirFicha(Dictionary<string, ContaCliente> ContaCorrente)
+    public void ExibirFicha(Dictionary<string, ContaCorrente> ContaCorrente)
     {
         string Consulta = Cpf;
         var Resposta = ContaCorrente[Consulta];
-
-        Console.Clear();
-        Console.WriteLine($"Nome: {Resposta.Nome} {Resposta.Sobrenome}");
-        Console.WriteLine($"Nome de usuario: {Resposta.NomeUsuario}");
-        Console.WriteLine($"Email: {Resposta.Email}");
-        Console.WriteLine($"CPF: {Resposta.Cpf}");
-        Console.WriteLine($"Digito: {Resposta.Agencia}");
-        Console.WriteLine($"Numero da conta: {Resposta.NumeroConta}");
-        Console.WriteLine();
+        Console.WriteLine($"Nome completo: {Resposta.Titular.Nome} {Resposta.Titular.Sobrenome}");
+        Console.WriteLine(Resposta.Titular.Email);
+        Console.WriteLine(Resposta.Titular.Cpf);
+        Console.WriteLine(Resposta.Titular.Profissão);
         Console.WriteLine("Aperte qualquer tecla para voltar");
         Console.ReadKey();
         Console.Clear();

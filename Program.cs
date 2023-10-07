@@ -4,9 +4,9 @@ using ClaretiBank.Menus.MenuInicial;
 using ClaretiBank.claretibank.Exceptions;
 using ClaretiBank.Menus.AreaDoUsuario;
 
-ContaCliente Teste = new("Usuario 1","", "adm", "adm@gmail.com", "1234", "1", "1234", "1234");
+ContaCorrente Teste = new("Usuario 1","", "adm", "adm@gmail.com", "1234", "1", "1234", "1234");
 
-Dictionary<string, ContaCliente> ContaCorrente = new();
+Dictionary<string, ContaCorrente> ContaCorrente = new();
 ContaCorrente.Add("1234", Teste);
 
 Dictionary<int, Menu> _Menu1 = new();
@@ -41,7 +41,11 @@ void MenuInicial()
             {
                 Menu Exibirmenu = _Menu1[opcao];
                 Exibirmenu.Executar(ContaCorrente);
-                if (opcao > 0)
+                if(opcao == 3)
+                {
+                    break;
+                } 
+                else if (opcao > 0)
                 {
                     MenuInicial();
                 }
