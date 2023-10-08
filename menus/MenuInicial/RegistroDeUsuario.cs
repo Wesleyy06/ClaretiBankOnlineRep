@@ -18,7 +18,7 @@ internal class RegistroDeUsuario : Menu
         Console.WriteLine();
         Console.Write("Numero CPF: ");
         string cpf = Console.ReadLine();
-        Console.WriteLine("Numero da conta: ");
+        Console.Write("Numero da conta: ");
         string numeroConta = Console.ReadLine();
         ContaCorrente usuario = new(cpf, numeroConta);
         usuario.Titular.Cpf = cpf;
