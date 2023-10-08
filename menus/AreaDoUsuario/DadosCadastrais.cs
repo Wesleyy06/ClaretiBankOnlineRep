@@ -23,9 +23,9 @@ internal class DadosCadastrais
         string Consulta = Cpf;
         var Resposta = ContaCorrente[Consulta];
         Console.WriteLine($"Nome completo: {Resposta.Titular.Nome} {Resposta.Titular.Sobrenome}");
-        Console.WriteLine(Resposta.Titular.Email);
-        Console.WriteLine(Resposta.Titular.Cpf);
-        Console.WriteLine(Resposta.Titular.Profissão);
+        Console.WriteLine($"Email: {Resposta.Titular.Email}");
+        Console.WriteLine($"CPF: {Resposta.Titular.Cpf}");
+        Console.WriteLine($"Profissão: {Resposta.Titular.Profissão}");
         Console.WriteLine("Aperte qualquer tecla para voltar");
         Console.ReadKey();
         Console.Clear();

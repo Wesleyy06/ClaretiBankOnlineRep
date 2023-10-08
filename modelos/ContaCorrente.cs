@@ -11,7 +11,6 @@ public class ContaCorrente
 {
     private string _nomeUsuario { get ; set; }
     public ContaCliente Titular { get; set; }
-    private string _agencia { get; set; }
     private string _numeroConta { get; set; }
     private string _senha { get; set; }
     public double Saldo { get; set; } 
@@ -20,12 +19,6 @@ public class ContaCorrente
     {
         get { return _nomeUsuario; }
         set { _nomeUsuario = value; }
-    }
-
-    public string Agencia
-    {
-        get { return _agencia; }
-        set { _agencia = value; }
     }
 
     public string NumeroConta
@@ -40,18 +33,10 @@ public class ContaCorrente
         set { _senha = value; }
     }
 
-    public ContaCorrente(string nome,string sobrenome, string nomeUsuario, string email, string cpf, string agencia, string numeroConta, string senha)
+    public ContaCorrente(string cpf, string numeroConta)
     {
+        NumeroConta = numeroConta;
         Titular = new ContaCliente();
-        Titular.Nome = nome;
-        Titular.Sobrenome = sobrenome;
-        NomeUsuario = nomeUsuario;
-        Titular.Email = email;
-        Titular.Cpf = cpf;
-        Agencia = agencia;
-        NumeroConta = numeroConta;
-        NumeroConta = numeroConta;
-        Senha = senha;
     }
 
     public double ExibirSaldo

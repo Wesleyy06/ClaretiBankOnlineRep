@@ -3,11 +3,17 @@ using ClaretiBank.Modelos;
 using ClaretiBank.Menus.MenuInicial;
 using ClaretiBank.claretibank.Exceptions;
 using ClaretiBank.Menus.AreaDoUsuario;
+using Org.BouncyCastle.Asn1.IsisMtt.X509;
 
-ContaCorrente Teste = new("Usuario 1","", "adm", "adm@gmail.com", "1234", "1", "1234", "1234");
+ContaCorrente Administrador = new("1111", "1111-A");
+Administrador.Titular.Nome = "Adm"; Administrador.Titular.Sobrenome = "2";
+Administrador.NomeUsuario = "Adm";
+Administrador.Titular.Cpf = "1111";
+Administrador.Saldo = 500000.00;
+Administrador.Senha = "1234";
 
 Dictionary<string, ContaCorrente> ContaCorrente = new();
-ContaCorrente.Add("1234", Teste);
+ContaCorrente.Add("1111", Administrador);
 
 Dictionary<int, Menu> _Menu1 = new();
 _Menu1.Add(1, new Login());

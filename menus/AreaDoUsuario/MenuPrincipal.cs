@@ -23,7 +23,7 @@ internal class MenuPrincipal
         string localizarUsuario = Cpf;
         var usuarioLocalizado = ContaCorrente[Cpf];
 
-        Console.WriteLine($"Usuario: {usuarioLocalizado.NomeUsuario}\nAgencia: {usuarioLocalizado.Agencia} Conta: {usuarioLocalizado.NumeroConta}\nSaldo: R$ {usuarioLocalizado.ExibirSaldo}");
+        Console.WriteLine($"Usuario: {usuarioLocalizado.NomeUsuario}\nConta: {usuarioLocalizado.NumeroConta}\nSaldo: R$ {usuarioLocalizado.ExibirSaldo}");
         Console.WriteLine();
         Console.WriteLine(Legendas);
         int OpcaoDesejada = int.Parse(Console.ReadLine()!);
