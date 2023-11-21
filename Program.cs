@@ -28,12 +28,9 @@ void MenuInicial()
         while (opcao != 3)
         {
             Console.Clear();
-            Console.WriteLine("===========================");
-            Console.WriteLine("Boas vindas ao ClaretiBank!");
-            Console.WriteLine("===========================");
-            Console.WriteLine();
-            Console.WriteLine("Digite 1 para logar ou 2 para registrar uma nova conta e 3 para sair");
-            Console.WriteLine("Opção escolhida: ");
+            new FormataTitulo().TituloDaOpcao("=== Boas Vindas ao Claretibank ===");
+            Console.WriteLine("Digite [1] para logar ou [2] para registrar uma nova conta e [3] para sair");
+            Console.Write("Opção escolhida: ");
             try
             {
             opcao = int.Parse(Console.ReadLine());
