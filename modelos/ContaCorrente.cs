@@ -12,6 +12,7 @@ public class ContaCorrente
     private string _nomeUsuario { get ; set; }
     public ContaCliente Titular { get; set; }
     private string _numeroConta { get; set; }
+    private int _digito { get; set; }
     private string _senha { get; set; }
     public double Saldo { get; set; } 
 
@@ -26,6 +27,11 @@ public class ContaCorrente
         get { return _numeroConta; }
         set { _numeroConta = value; }
     }
+    public int Digito
+    {
+        get { return _digito; }
+        set { _digito = value; }
+    }
 
     public string Senha
     {
@@ -37,6 +43,11 @@ public class ContaCorrente
     {
         NumeroConta = numeroConta;
         Titular = new ContaCliente();
+    }
+    public ContaCorrente(string cpf)
+    {
+        NumeroConta = Guid.NewGuid().ToString().Substring(0, 8);
+        Titular= new ContaCliente();
     }
 
     public double ExibirSaldo
@@ -59,6 +70,14 @@ public class ContaCorrente
         {
             Saldo -= montante;
         }
+    }
+    public override string ToString()
+    {
+        return $"Nome completo [{this.Titular.Nome} {this.Titular.Sobrenome}]\n" +
+               $"Email [{this.Titular.Email}]\n" +
+               $"CPF [{this.Titular.Cpf}]\n" +
+               $"Profissão [{this.Titular.Profissão}]\n" +
+               $"Conta [{this.NumeroConta} - {this.Digito}]";
     }
 
 }

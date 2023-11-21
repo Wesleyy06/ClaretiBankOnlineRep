@@ -16,6 +16,7 @@ internal class Login : Menu
 
         while (contador < limitador)
         {
+            new FormataTitulo().TituloDaOpcao("=== Login usuario ===");
             Console.Write("Numero CPF: ");
 
             string _Consulta = Console.ReadLine()!;

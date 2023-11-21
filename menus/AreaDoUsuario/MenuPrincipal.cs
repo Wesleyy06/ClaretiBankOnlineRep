@@ -22,19 +22,28 @@ internal class MenuPrincipal
     {
         string localizarUsuario = Cpf;
         var usuarioLocalizado = ContaCorrente[Cpf];
-
+        Console.Clear();
         Console.WriteLine($"Usuario: {usuarioLocalizado.NomeUsuario}\nConta: {usuarioLocalizado.NumeroConta}\nSaldo: R$ {usuarioLocalizado.ExibirSaldo}");
         Console.WriteLine();
         Console.WriteLine(Legendas);
-        int OpcaoDesejada = int.Parse(Console.ReadLine()!);
-
-        switch (OpcaoDesejada)
+        try
         {
-            case 1: Saque sacar = new(localizarUsuario); sacar.MenuSaque(ContaCorrente); ExibirMenu(ContaCorrente); break;
-            case 2: Deposito depositar = new(localizarUsuario); depositar._Deposito(ContaCorrente); ExibirMenu(ContaCorrente); break;
-            case 3: DadosCadastrais exibirDados = new(localizarUsuario); exibirDados.ExibirFicha(ContaCorrente); ExibirMenu(ContaCorrente); break;
-            case -1: Console.WriteLine("Bye"); break;
+            int OpcaoDesejada = int.Parse(Console.ReadLine()!);
+            switch (OpcaoDesejada)
+            {
+                case 1: Saque sacar = new(localizarUsuario); sacar.MenuSaque(ContaCorrente); ExibirMenu(ContaCorrente); break;
+                case 2: Deposito depositar = new(localizarUsuario); depositar._Deposito(ContaCorrente); ExibirMenu(ContaCorrente); break;
+                case 3: DadosCadastrais exibirDados = new(localizarUsuario); exibirDados.ExibirFicha(ContaCorrente); ExibirMenu(ContaCorrente); break;
+                case -1: Console.WriteLine("Bye"); break;
+                default: Console.WriteLine("opção escolhida invalida"); break;
+            }
         }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+
+        
     }
 
 }

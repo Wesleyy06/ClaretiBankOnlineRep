@@ -1,4 +1,5 @@
-﻿using ClaretiBank.Modelos;
+﻿using ClaretiBank.Menus.MenuInicial;
+using ClaretiBank.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -22,11 +23,10 @@ internal class DadosCadastrais
     {
         string Consulta = Cpf;
         var Resposta = ContaCorrente[Consulta];
-        Console.WriteLine($"Nome completo: {Resposta.Titular.Nome} {Resposta.Titular.Sobrenome}");
-        Console.WriteLine($"Email: {Resposta.Titular.Email}");
-        Console.WriteLine($"CPF: {Resposta.Titular.Cpf}");
-        Console.WriteLine($"Profissão: {Resposta.Titular.Profissão}");
-        Console.WriteLine("Aperte qualquer tecla para voltar");
+        Console.Clear();
+        new FormataTitulo().TituloDaOpcao("=== Ficha do usuario ===");
+        Console.WriteLine(Resposta.ToString());
+        Console.WriteLine("\nPressione qualquer tecla para voltar...");
         Console.ReadKey();
         Console.Clear();
     }

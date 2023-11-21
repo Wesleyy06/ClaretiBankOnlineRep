@@ -11,7 +11,7 @@ namespace ClaretiBank.claretibank.Exceptions
 	public class ClaretiBankException : Exception
 	{
 		public ClaretiBankException() { }
-		public ClaretiBankException(string message) : base("oops... algo deu errado, causa do erro --->" + message) { }
+		public ClaretiBankException(string message) : base("oops... algo deu errado, causa do erro ---> " + message) { }
 		public ClaretiBankException(string message, Exception inner) : base(message, inner) { }
 		protected ClaretiBankException(
 		  System.Runtime.Serialization.SerializationInfo info,

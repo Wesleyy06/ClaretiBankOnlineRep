@@ -1,4 +1,5 @@
-﻿using ClaretiBank.Modelos;
+﻿using ClaretiBank.claretibank.Exceptions;
+using ClaretiBank.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,23 +20,30 @@ internal class Saque
         var Consulta = ContaCorrente[Cpf];
 
         Console.Clear();
-        Console.Write("Digite o valor de saque\nR$ ");
-        double ValorDeSaque = double.Parse(Console.ReadLine()!);
-        if (ValorDeSaque <= Consulta.Saldo) 
+        new FormataTitulo().TituloDaOpcao("=== Saque ===");
+        try
         {
-            Consulta.Sacar(ValorDeSaque);
-            Console.Clear();
-            Console.WriteLine("Saque realizado com sucesso!");
-            Thread.Sleep(1500);
-            Console.Clear();
-        } 
-        else
-        {
-            Console.Clear() ;
-            Console.WriteLine("Saldo insuficiente!");
-            Thread.Sleep(1500);
-            Console.Clear();
+            Console.Write("Digite o valor de saque\nR$ ");
+            double ValorDeSaque = double.Parse(Console.ReadLine()!);
+            if (ValorDeSaque <= Consulta.Saldo)
+            {
+                Consulta.Sacar(ValorDeSaque);
+                Console.Clear();
+                Console.WriteLine("Saque realizado com sucesso!");
+                Thread.Sleep(1500);
+                Console.Clear();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Saldo insuficiente!");
+                Thread.Sleep(1500);
+                Console.Clear();
+            }
         }
-        
+        catch (Exception ex)
+        {
+            throw new ClaretiBankException(ex.Message);
+        }
     }
 }
